@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariam's Henna Night | 02.07.2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --gold:#ffd369;
+    --dark-gold:#d4a017;
+    --red:#7a001f;
+    --crimson:#a50034;
+    --emerald:#00a67e;
+    --bg:#2a0010;
+    --white:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(180deg,#2a0010,#45001a,#2a0010);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ==========================
+   SPARKLES
+========================== */
+
+.sparkles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+}
+
+.sparkle{
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:var(--gold);
+    border-radius:50%;
+    opacity:.8;
+    animation:fall linear infinite;
+    box-shadow:
+    0 0 8px var(--gold),
+    0 0 18px var(--gold);
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-10vh);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+
+/* ==========================
+   CURTAIN SPLASH
+========================== */
+
+#curtainScreen{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    overflow:hidden;
+    background:#150008;
+}
+
+.curtain-left,
+.curtain-right{
+    position:absolute;
+    top:0;
+    width:50%;
+    height:100%;
+    background:
+    repeating-linear-gradient(
+    90deg,
+    #5f0018 0px,
+    #7e001f 25px,
+    #990028 50px
+    );
+    box-shadow: inset 0 0 60px rgba(0,0,0,.7);
+}
+
+.curtain-left{
+    left:0;
+    border-right:5px solid var(--gold);
+}
+
+.curtain-right{
+    right:0;
+    border-left:5px solid var(--gold);
+}
+
+.curtain-open .curtain-left{
+    animation:openLeft 2.5s forwards ease-in-out;
+}
+
+.curtain-open .curtain-right{
+    animation:openRight 2.5s forwards ease-in-out;
+}
+
+@keyframes openLeft{
+    to{
+        transform:translateX(-100%);
+    }
+}
+
+@keyframes openRight{
+    to{
+        transform:translateX(100%);
+    }
+}
+
+.stage{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:
+    radial-gradient(circle,var(--emerald),#1c0010 70%);
+}
+
+.welcome{
+    color:var(--gold);
+    max-width:700px;
+    padding:20px;
+    z-index:2;
+}
+
+.welcome h1{
+    font-size:clamp(2rem,5vw,4rem);
+    font-family:'Cinzel',serif;
+    margin-bottom:20px;
+}
+
+.welcome p{
+    font-size:1.2rem;
+}
+
+/* Belly dancer silhouette */
+
+.dancer{
+    position:relative;
+    width:120px;
+    height:220px;
+    margin-bottom:30px;
+    animation:shimmy .6s infinite alternate ease-in-out;
+}
+
+.dancer .head{
+    width:40px;
+    height:40px;
+    background:#000;
+    border-radius:50%;
+    position:absolute;
+    left:40px;
+}
+
+.dancer .body{
+    width:24px;
+    height:90px;
+    background:#000;
+    position:absolute;
+    top:35px;
+    left:48px;
+}
+
+.dancer .arm1,
+.dancer .arm2{
+    position:absolute;
+    width:80px;
+    height:10px;
+    background:#000;
+    top:60px;
+}
+
+.arm1{
+    left:-10px;
+    transform:rotate(-30deg);
+}
+
+.arm2{
+    right:-10px;
+    transform:rotate(30deg);
+}
+
+.skirt{
+    position:absolute;
+    width:110px;
+    height:80px;
+    background:#000;
+    top:115px;
+    left:5px;
+    border-radius:0 0 50% 50%;
+}
+
+@keyframes shimmy{
+    from{
+        transform:translateX(-10px) rotate(-4deg);
+    }
+    to{
+        transform:translateX(10px) rotate(4deg);
+    }
+}
+
+/* ==========================
+   MAIN SECTION
+========================== */
+
+main{
+    position:relative;
+    z-index:2;
+}
+
+.hero{
+    min-height:100vh;
+    padding:110px 20px 60px;
+    text-align:center;
+}
+
+.hero h2{
+    color:var(--gold);
+    font-size:clamp(2rem,6vw,4rem);
+    font-family:'Cinzel',serif;
+    margin-bottom:10px;
+}
+
+.hero .subtitle{
+    color:#ffe6a3;
+    margin-bottom:40px;
+}
+
+.invitation-card{
+    max-width:1000px;
+    margin:auto;
+    background:rgba(255,255,255,.06);
+    border:2px solid rgba(255,211,105,.4);
+    backdrop-filter:blur(12px);
+    border-radius:30px;
+    padding:30px;
+    box-shadow:0 0 30px rgba(255,211,105,.25);
+}
+
+.abla-section{
+    display:flex;
+    gap:30px;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.abla-img{
+    width:280px;
+    height:360px;
+    border-radius:25px;
+    border:4px solid var(--gold);
+    overflow:hidden;
+    background:#3f0018;
+}
+
+.abla-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.speech{
+    max-width:350px;
+    background:white;
+    color:#111;
+    padding:20px;
+    border-radius:25px;
+    font-size:1.1rem;
+    position:relative;
+    font-weight:600;
+}
+
+.speech::after{
+    content:"";
+    position:absolute;
+    left:-15px;
+    top:40px;
+    border-width:15px;
+    border-style:solid;
+    border-color:transparent white transparent transparent;
+}
+
+.details{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.detail-box{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,211,105,.3);
+    border-radius:20px;
+    padding:20px;
+}
+
+.detail-box h4{
+    color:var(--gold);
+    margin-bottom:10px;
+}
+
+/* ==========================
+   COUNTDOWN
+========================== */
+
+.countdown{
+    margin-top:50px;
+}
+
+.countdown h3{
+    color:var(--gold);
+    margin-bottom:20px;
+}
+
+.timer{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.time-box{
+    min-width:100px;
+    padding:20px;
+    border-radius:20px;
+    border:2px solid var(--gold);
+    background:rgba(0,0,0,.25);
+    box-shadow:0 0 15px rgba(255,211,105,.4);
+}
+
+.time-box span{
+    display:block;
+}
+
+.time-value{
+    font-size:2rem;
+    color:var(--gold);
+    font-weight:bold;
+}
+
+.time-label{
+    font-size:.9rem;
+}
+
+/* ==========================
+   RSVP
+========================== */
+
+.rsvp-btn{
+    margin-top:40px;
+    border:none;
+    padding:18px 40px;
+    font-size:1.1rem;
+    font-weight:bold;
+    border-radius:50px;
+    cursor:pointer;
+    background:linear-gradient(45deg,var(--gold),#fff0ad);
+    color:#6b001b;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.06);
+    }
+}
+
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.popup-content{
+    width:min(90%,420px);
+    background:white;
+    color:#111;
+    padding:30px;
+    border-radius:25px;
+}
+
+.popup-content h3{
+    margin-bottom:15px;
+}
+
+.popup-content input{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+.popup-content button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:var(--gold);
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.close{
+    float:right;
+    cursor:pointer;
+    font-size:22px;
+}
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    color:#ffe6a3;
+}
+
+@media(max-width:768px){
+
+    .abla-img{
+        width:240px;
+        height:300px;
+    }
+
+    .speech::after{
+        display:none;
+    }
+
+    .time-box{
+        min-width:80px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Sparkles -->
+<div class="sparkles" id="sparkles"></div>
+
+<!-- Curtain Screen -->
+<div id="curtainScreen">
+
+    <div class="stage">
+
+        <div class="dancer">
+            <div class="head"></div>
+            <div class="body"></div>
+            <div class="arm1"></div>
+            <div class="arm2"></div>
+            <div class="skirt"></div>
+        </div>
+
+        <div class="welcome">
+            <h1>Ya Marhab!</h1>
+            <p>You are officially invited to Mariam's Henna Night!</p>
+        </div>
+
+    </div>
+
+    <div class="curtain-left"></div>
+    <div class="curtain-right"></div>
+
+</div>
+
+<!-- Main Content -->
+<main>
+
+<section class="hero">
+
+    <h2>Mariam's Henna Night</h2>
+    <p class="subtitle">
+        Egyptian Belly Dancing • Henna • Gold • Glitter • Abla Kamel Energy
+    </p>
+
+    <div class="invitation-card">
+
+        <div class="abla-section">
+
+            <div class="abla-img">
+
+                <!-- Replace with your image -->
+                <img src="image_65ba1e.jpg" alt="Abla Kamel">
+
+            </div>
+
+            <div class="speech">
+                يلا ياختي منك ليها،
+                <br><br>
+                مريم هتتحنى!
+                💃✨
+                <br><br>
+                لو مجيتيش هزعل...
+                وهجيب ناس تزعل!
+            </div>
+
+        </div>
+
+        <div class="details">
+
+            <div class="detail-box">
+                <h4>👰 Bride</h4>
+                <p>Mariam</p>
+            </div>
+
+            <div class="detail-box">
+                <h4>🎉 Event</h4>
+                <p>The Ultimate Belly Dancing Henna Night</p>
+            </div>
+
+            <div class="detail-box">
+                <h4>📅 Date</h4>
+                <p>02 / 07 / 2026</p>
+            </div>
+
+            <div class="detail-box">
+                <h4>📍 Location</h4>
+                <p>[ Insert Location ]</p>
+            </div>
+
+            <div class="detail-box">
+                <h4>⏰ Time</h4>
+                <p>[ Insert Time ]</p>
+            </div>
+
+        </div>
+
+        <div class="countdown">
+
+            <h3>Countdown Until The Henna Party 💃</h3>
+
+            <div class="timer">
+
+                <div class="time-box">
+                    <span class="time-value" id="days">0</span>
+                    <span class="time-label">Days</span>
+                </div>
+
+                <div class="time-box">
+                    <span class="time-value" id="hours">0</span>
+                    <span class="time-label">Hours</span>
+                </div>
+
+                <div class="time-box">
+                    <span class="time-value" id="minutes">0</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+
+                <div class="time-box">
+                    <span class="time-value" id="seconds">0</span>
+                    <span class="time-label">Seconds</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="rsvp-btn" onclick="openPopup()">
+            💃 I'm Coming To Shake It!
+        </button>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    ✨ Mariam's Henna Night • July 2, 2026 ✨
+</footer>
+
+<!-- RSVP Popup -->
+<div class="popup" id="popup">
+
+    <div class="popup-content">
+
+        <span class="close" onclick="closePopup()">✖</span>
+
+        <h3>RSVP</h3>
+
+        <input type="text" placeholder="Your Name">
+
+        <input type="number" placeholder="Guests">
+
+        <button onclick="sendWhatsapp()">
+            Confirm via WhatsApp
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+/* Curtain Animation */
+
+window.addEventListener("load",()=>{
+
+    const curtain = document.getElementById("curtainScreen");
+
+    setTimeout(()=>{
+        curtain.classList.add("curtain-open");
+    },600);
+
+    setTimeout(()=>{
+        curtain.style.opacity="0";
+
+        setTimeout(()=>{
+            curtain.style.display="none";
+        },1000);
+
+    },3500);
+
+});
+
+/* Countdown */
+
+const targetDate = new Date("July 2, 2026 20:00:00").getTime();
+
+function updateCountdown(){
+
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    const days = Math.floor(diff/(1000*60*60*24));
+    const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+    const seconds = Math.floor((diff%(1000*60))/1000);
+
+    document.getElementById("days").innerText=days;
+    document.getElementById("hours").innerText=hours;
+    document.getElementById("minutes").innerText=minutes;
+    document.getElementById("seconds").innerText=seconds;
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+/* Sparkles */
+
+const sparkleContainer = document.getElementById("sparkles");
+
+for(let i=0;i<40;i++){
+
+    const s = document.createElement("div");
+
+    s.classList.add("sparkle");
+
+    s.style.left=Math.random()*100+"%";
+    s.style.animationDuration=(4+Math.random()*6)+"s";
+    s.style.animationDelay=Math.random()*5+"s";
+
+    sparkleContainer.appendChild(s);
+}
+
+/* RSVP */
+
+function openPopup(){
+    document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+
+function sendWhatsapp(){
+
+    // Replace with your number
+    const phone = "201000000000";
+
+    window.open(
+      `https://wa.me/${phone}?text=Hello! I am coming to Mariam's Henna Party 💃✨`,
+      "_blank"
+    );
+}
+
+</script>
+
+</body>
+</html>
